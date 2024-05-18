@@ -1,15 +1,15 @@
 {
-  "name": "pratica-2",
+  "name": "pratica-4",
   "version": "1.0.0",
-  "description": "Middleware com restify.js",
+  "description": "Crud com restify.js",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "Não há testes configurados"
+    "start": "node src/index.js"
   },
   "dependencies": {
-    "restify": "^8.5.1"
+    "restify": "^8.5.1",
+    "pg": "^8.11.5"
   },
-  "author": "Lucas Franqueira GEC1734",
+  "author": "Lucas Franqueira Carneiro Fonseca GEC 1734",
   "license": "ISC"
 }
