@@ -1,0 +1,4 @@
+FROM postgres:13-alpine
+ENV POSTGRES_DB=tasks_db
+ENV POSTGRES_USER=user
+ENV POSTGRES_PASSWORD=password
