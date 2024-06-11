@@ -10,6 +10,7 @@ async function fetchTasks() {
         li.textContent = `${task.title} (Start: ${task.start_time}, End: ${task.end_time}, Planning: ${task.planning_time})`;
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('ml-4', 'bg-red-600', 'text-white', 'p-2', 'rounded');
         deleteButton.onclick = () => deleteTask(task.id);
         li.appendChild(deleteButton);
         taskList.appendChild(li);
@@ -46,6 +47,15 @@ async function addTask() {
 
 async function deleteTask(id) {
     const response = await fetch(`${apiUrl}/${id}`, {
+        method: 'DELETE'
+    });
+    const result = await response.json();
+    alert(result.message);
+    fetchTasks();
+}
+
+async function clearDatabase() {
+    const response = await fetch(apiUrl, {
         method: 'DELETE'
     });
     const result = await response.json();

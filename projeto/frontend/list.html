@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management System</title>
+    <title>Task Management System - View List</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="../app.js" defer></script>
 </head>
@@ -19,8 +19,11 @@
         </div>
     </nav>
 
-    <div class="container mx-auto mt-10" id="content">
-        <!-- Content will be loaded here -->
+    <div class="container mx-auto mt-10">
+        <h1 class="text-2xl mb-4">Task List</h1>
+        <ul id="taskList" class="list-disc pl-5">
+            <!-- Task items will be loaded here -->
+        </ul>
     </div>
 </body>
 </html>
