@@ -52,7 +52,6 @@ def add_task():
     try:
         data = request.get_json()
         logging.debug("Received data: %s", data)
-        # Ensure all date fields are received
         if 'title' not in data or 'start_time' not in data or 'end_time' not in data or 'planning_time' not in data:
             logging.error("Missing data in request: %s", data)
             return jsonify({'message': 'Bad Request: Missing data'}), 400
@@ -81,6 +80,41 @@ def delete_task(id):
         return jsonify({'message': 'Task not found'}), 404
     except Exception as e:
         logging.error("Error deleting task: %s", e)
+        return jsonify({'message': 'Internal Server Error'}), 500
+
+@app.route('/tasks/<int:id>', methods=['PUT'])
+def update_task(id):
+    try:
+        data = request.get_json()
+        logging.debug("Received data for update: %s", data)
+        task = Task.query.get(id)
+        if not task:
+            return jsonify({'message': 'Task not found'}), 404
+
+        if 'title' in data:
+            task.title = data['title']
+        if 'start_time' in data:
+            task.start_time = datetime.strptime(data['start_time'], '%Y-%m-%d')
+        if 'end_time' in data:
+            task.end_time = datetime.strptime(data['end_time'], '%Y-%m-%d')
+        if 'planning_time' in data:
+            task.planning_time = datetime.strptime(data['planning_time'], '%Y-%m-%d')
+
+        db.session.commit()
+        return jsonify({'message': 'Task updated successfully'}), 200
+    except Exception as e:
+        logging.error("Error updating task: %s", e)
+        return jsonify({'message': 'Internal Server Error'}), 500
+
+# Ensure the route and method are correctly defined
+@app.route('/tasks/clear', methods=['DELETE'])
+def clear_tasks():
+    try:
+        num_deleted = db.session.query(Task).delete()
+        db.session.commit()
+        return jsonify({'message': f'{num_deleted} tasks deleted successfully'}), 200
+    except Exception as e:
+        logging.error("Error clearing tasks: %s", e)
         return jsonify({'message': 'Internal Server Error'}), 500
 
 if __name__ == '__main__':

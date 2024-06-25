@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +8,47 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="../app.js" defer></script>
 </head>
+
 <body class="bg-gray-100">
-    <nav class="bg-blue-600 p-4 text-white">
-        <div class="container mx-auto flex justify-between">
-            <a href="index.html" class="text-xl">Task Management</a>
-            <div>
-                <a href="list.html" class="mr-4">View List</a>
-                <a href="add.html" class="mr-4">Add Item</a>
-                <a href="clear.html">Clear Database</a>
+    <nav class="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Task Management</a>
+            <div class="flex space-x-4">
+                <a href="list.html" class="hover:text-gray-300 transition duration-200">View List</a>
+                <a href="add.html" class="hover:text-gray-300 transition duration-200">Add Item</a>
+                <a href="clear.html" class="hover:text-gray-300 transition duration-200">Clear Database</a>
             </div>
         </div>
     </nav>
 
-    <div class="container mx-auto mt-10">
-        <h1 class="text-2xl mb-4">Add New Task</h1>
-        <div class="mb-4">
-            <input type="text" id="taskInput" placeholder="Enter task" class="p-2 border border-gray-300 rounded">
-        </div>
-        <div class="mb-4">
-            <label for="startTimeInput">Start Time</label>
-            <input type="date" id="startTimeInput" class="p-2 border border-gray-300 rounded">
-        </div>
-        <div class="mb-4">
-            <label for="endTimeInput">End Time</label>
-            <input type="date" id="endTimeInput" class="p-2 border border-gray-300 rounded">
-        </div>
-        <div class="mb-4">
-            <label for="planningTimeInput">Planning Time</label>
-            <input type="date" id="planningTimeInput" class="p-2 border border-gray-300 rounded">
-        </div>
-        <button onclick="addTask()" class="bg-blue-600 text-white p-2 rounded">Add Task</button>
+    <div class="container mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+        <h1 class="text-3xl mb-6 font-semibold text-gray-800">Add New Task</h1>
+        <form class="space-y-4">
+            <div>
+                <label for="taskInput" class="block text-gray-700 font-medium">Task</label>
+                <input type="text" id="taskInput" placeholder="Enter task"
+                    class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+                <label for="startTimeInput" class="block text-gray-700 font-medium">Start Time</label>
+                <input type="date" id="startTimeInput"
+                    class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+                <label for="endTimeInput" class="block text-gray-700 font-medium">End Time</label>
+                <input type="date" id="endTimeInput"
+                    class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+                <label for="planningTimeInput" class="block text-gray-700 font-medium">Planning Time</label>
+                <input type="date" id="planningTimeInput"
+                    class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <button type="button" onclick="addTask()"
+                class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition duration-200">Add
+                Task</button>
+        </form>
     </div>
 </body>
+
 </html>

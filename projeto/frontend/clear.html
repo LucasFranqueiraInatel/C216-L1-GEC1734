@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="../app.js" defer></script>
 </head>
+
 <body class="bg-gray-100">
-    <nav class="bg-blue-600 p-4 text-white">
-        <div class="container mx-auto flex justify-between">
-            <a href="index.html" class="text-xl">Task Management</a>
-            <div>
-                <a href="list.html" class="mr-4">View List</a>
-                <a href="add.html" class="mr-4">Add Item</a>
-                <a href="clear.html">Clear Database</a>
+    <nav class="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Task Management</a>
+            <div class="flex space-x-4">
+                <a href="list.html" class="hover:text-gray-300 transition duration-200">View List</a>
+                <a href="add.html" class="hover:text-gray-300 transition duration-200">Add Item</a>
+                <a href="clear.html" class="hover:text-gray-300 transition duration-200">Clear Database</a>
             </div>
         </div>
     </nav>
@@ -24,4 +26,5 @@
         <button onclick="clearDatabase()" class="bg-red-600 text-white p-2 rounded">Clear Database</button>
     </div>
 </body>
+
 </html>
